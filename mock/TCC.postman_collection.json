@@ -1,0 +1,587 @@
+{
+	"info": {
+		"_postman_id": "da708423-9812-4247-a4cc-ba2e2768c11c",
+		"name": "TCC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "EHR",
+			"item": [
+				{
+					"name": "Create record",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerID\": \"pessoa1\",\n    \"patientPrivate\": {\n        \"name\": \"joao\",\n        \"birthday\": \"2001-01-01T00:00:00Z\",\n        \"cpf\": \"12345678901\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ehr/record",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"record"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Prescription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerID\": \"pessoa1\",\n    \"prescriptionJSON\": {\n        \"professionalID\": \"pro1\",\n        \"date\": \"2001-01-01T00:00:00Z\",\n        \"description\": \"some description\",\n        \"medication\": \"bepantol\",\n        \"dosage\": \"10mg\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ehr/prescription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"prescription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Appointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerID\": \"pessoa1\",\n    \"appointmentJSON\": {\n        \"professionalID\": \"pro1\",\n        \"date\": \"2001-01-01T00:00:00Z\",\n        \"clinicName\": \"Santo Amaro\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ehr/appointment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Procedure",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerID\": \"pessoa1\",\n    \"procedureJSON\": {\n        \"professionalID\": \"pro1\",\n        \"date\": \"2001-01-01T00:00:00Z\",\n        \"procedureID\": \"lipo\",\n        \"procedurePlace\": \"Hospital seu quincas\",\n        \"relatedProfessionals\": [\"pro1\", \"pro2\", \"pro3\"]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ehr/procedure",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"procedure"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read record",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ehr/record?ownerID=pessoa1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"record"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read prescription",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ehr/prescription?ownerID=pessoa1&professionalID=pro1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"prescription"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								},
+								{
+									"key": "professionalID",
+									"value": "pro1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Appointment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ehr/appointment?ownerID=pessoa1&professionalID=pro1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"appointment"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								},
+								{
+									"key": "professionalID",
+									"value": "pro1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read procedure",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ehr/procedure?ownerID=pessoa1&professionalID=pro1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"procedure"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								},
+								{
+									"key": "professionalID",
+									"value": "pro1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read private records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ehr/private?ownerID=pessoa1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ehr",
+								"private"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AL",
+			"item": [
+				{
+					"name": "Create AL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerID\": \"pessoa1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/al/asset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"al",
+								"asset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerID\": \"pessoa1\",\n    \"professionalID\": \"pro1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/al/id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"al",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List IDs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/al/ids?ownerID=pessoa1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"al",
+								"ids"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Is Id Approved",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/al/id?ownerID=pessoa1&professionalID=pro1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"al",
+								"id"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								},
+								{
+									"key": "professionalID",
+									"value": "pro1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OwnerExists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/al/owner?ownerID=pessoa1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"al",
+								"owner"
+							],
+							"query": [
+								{
+									"key": "ownerID",
+									"value": "pessoa1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerID\": \"pessoa1\",\n    \"professionalID\": \"pro1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/al/id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"al",
+								"id"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "Create Pro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"pro1\",\n    \"role\": \"professional\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/wallet/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"wallet",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"pessoa1\",\n    \"role\": \"patient\",\n    \"org\": \"org0.network.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/wallet/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"wallet",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set active pro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"pro1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/wallet/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"wallet",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set active pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"pessoa1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/wallet/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"wallet",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List IDs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/wallet/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"wallet",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

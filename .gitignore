@@ -1,0 +1,7 @@
+node_modules
+notas*
+vendor
+vars
+minifabric/app/*
+minifabric/chaincode/*
+api/build/*
